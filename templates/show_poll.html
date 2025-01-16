@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inspect Poll Details</title>
+</head>
+<body>
+    <h3>{{ poll['poll'] }}</h3>
+    <p><b>{{ poll['option1'] }}</b> {{ poll['votes1'] }} <a = href= {{ url_for('vote', pollId=poll.name, option=1) }} >Vote</p>
+    <p><b>{{ poll['option2'] }}</b> {{ poll['votes2'] }} <a = href= {{ url_for('vote', pollId=poll.name, option=2) }} >Vote</p>
+    <p><b>{{ poll['option3'] }}</b> {{ poll['votes3'] }} <a = href= {{ url_for('vote', pollId=poll.name, option=3) }} >Vote</p>
+    <a href = {{ url_for("index") }}>Back</a>
+</body>
+</html>
