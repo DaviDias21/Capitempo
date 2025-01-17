@@ -5,10 +5,26 @@
     <title>Inspect Poll Details</title>
 </head>
 <body>
-    <h3>{{ poll['poll'] }}</h3>
-    <p><b>{{ poll['option1'] }}</b> {{ poll['votes1'] }} <a = href= {{ url_for('vote', pollId=poll.name, option=1) }} >Vote</p>
-    <p><b>{{ poll['option2'] }}</b> {{ poll['votes2'] }} <a = href= {{ url_for('vote', pollId=poll.name, option=2) }} >Vote</p>
-    <p><b>{{ poll['option3'] }}</b> {{ poll['votes3'] }} <a = href= {{ url_for('vote', pollId=poll.name, option=3) }} >Vote</p>
-    <a href = {{ url_for("index") }}>Back</a>
+    <h2>{{ poll['location'] }} ( {{ poll['area'] }} )</h2>
+    <p></p>
+    <h3><p>Nuvens: {{ poll['c_pollResult'] }} {{ poll['c_highestPercentage'] }}</p></h3>
+    <p></p>
+    <p>{{ poll['c_noOption'] }} {{ poll['c_votesNo'] }} <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="c_" ,option="No") }} > Vote Up <a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="c_" ,option="No") }} > Vote Down</p>
+    <p>{{ poll['c_lowOption'] }} {{ poll['c_votesLow'] }} <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="c_" ,option="Low") }} > Vote Up <a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="c_" ,option="Low") }} > Vote Down</p>
+    <p>{{ poll['c_avgOption'] }} {{ poll['c_votesAvg'] }} <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="c_" ,option="Avg") }} > Vote Up <a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="c_" ,option="Avg") }} > Vote Down</p>
+    <p>{{ poll['c_highOption'] }} {{ poll['c_votesHigh'] }} <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="c_" ,option="High") }} > Vote Up <a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="c_" ,option="High") }} > Vote Down</p>
+    <p></p>
+    <p>Total de votos:  {{ poll['c_votesTotal'] }}
+    <p></p>
+    <p>Chuva: {{ poll['r_pollResult'] }} {{ poll['r_highestPercentage'] }}</p>
+    <p></p>
+    <p>{{ poll['r_noOption'] }} {{ poll['r_votesNo'] }} <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="r_" ,option="No") }} > Vote Up <a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="r_" ,option="No") }} > Vote Down</p>
+    <p>{{ poll['r_lowOption'] }} {{ poll['r_votesLow'] }} <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="r_" ,option="Low") }} > Vote Up <a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="r_" ,option="Low") }} > Vote Down</p>
+    <p>{{ poll['r_avgOption'] }} {{ poll['r_votesAvg'] }} <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="r_" ,option="Avg") }} > Vote Up <a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="r_" ,option="Avg") }} > Vote Down</p>
+    <p>{{ poll['r_highOption'] }} {{ poll['r_votesHigh'] }} <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="r_" ,option="High") }} > Vote Up <a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="r_" ,option="High") }} > Vote Down</p>
+    <p></p>
+    <p>Total de votos:  {{ poll['r_votesTotal'] }}
+    <p></p>
+    <p><a href = {{ url_for("index") }}>Back</a></p>
 </body>
 </html>

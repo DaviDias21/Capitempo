@@ -1,4 +1,23 @@
-id,poll,option1,option2,option3,votes1,votes2,votes3,votesTotal
-1,Hello World,A,B,C,0,0,0,0
-2,Test,A,B,C,2,0,0,0
-3,Qual é a sua cor favorita?,Azul,Vermelho,Amarelo,2,0,0,2
+id,area,location,verdict,c_pollResult,c_noOption,c_lowOption,c_avgOption,c_highOption,c_votesNo,c_votesLow,c_votesAvg,c_votesHigh,c_votesTotal,c_highestPercentage,r_pollResult,r_noOption,r_lowOption,r_avgOption,r_highOption,r_votesNo,r_votesLow,r_votesAvg,r_votesHigh,r_votesTotal,r_highestPercentage
+1,Área Central,Esplanada dos Ministérios/Embaixadas,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+2,Área Central,Rodoviária,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+3,Área Central,Estádio Mané Garrincha,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+4,Área Norte,Vila Planalto,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+5,Área Norte,Asa Norte - Início,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+6,Área Norte,Asa Norte - Meio,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+7,Área Norte,Asa Norte - Ponta,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+8,Área Norte,Universidade de Brasília,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+9,Área Norte,Noroeste,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+10,Área Norte,Quartéis,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+11,Área Norte,Lago Norte - Início,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+12,Área Norte,Lago Norte - Ponta,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+13,Área Sul,Setor de Clubes Sul,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+14,Área Sul,Asa Sul - Início,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+15,Área Sul,Asa Sul - Meio,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+16,Área Sul,Asa Sul - Ponta,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+17,Área Sul,Parque da Cidade - Parte Norte,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+18,Área Sul,Parque da Cidade - Parte Sul,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+19,Área Sul,Cemitério Campo da Esperança,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+20,Área Sul,Sudoeste,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+21,Área Sul,Cruzeiro,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
+22,Área Sul,Aeroporto,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva,Chuva forte,0,0,0,0,0,0%
