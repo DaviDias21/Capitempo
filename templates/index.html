@@ -5,7 +5,7 @@
     <title>Polling Test</title>
 </head>
 <body>
-    <h2>Lugares:</h2>
+    <h2>Brasília:</h2>
     <ul>
     {% for key, value in polls.iterrows() %}
         <h3><li><a href= {{ url_for("polls", pollId=key) }}>{{ value['location'] }}: {{ value['verdict'] }}</a></li></h3>
