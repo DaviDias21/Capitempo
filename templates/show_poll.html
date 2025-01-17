@@ -5,10 +5,13 @@
     <title>Inspect Poll Details</title>
 </head>
 <body>
-    <h3>{{ poll['poll'] }}</h3>
-    <p><b>{{ poll['option1'] }}</b> {{ poll['votes1'] }} <a = href= {{ url_for('vote', pollId=poll.name, option=1) }} >Vote</p>
-    <p><b>{{ poll['option2'] }}</b> {{ poll['votes2'] }} <a = href= {{ url_for('vote', pollId=poll.name, option=2) }} >Vote</p>
-    <p><b>{{ poll['option3'] }}</b> {{ poll['votes3'] }} <a = href= {{ url_for('vote', pollId=poll.name, option=3) }} >Vote</p>
-    <a href = {{ url_for("index") }}>Back</a>
+    <h3>{{ poll['area'] }}</h3>
+    <h2>{{ poll['location'] }}</h2>
+    <p><b></b></p>
+    <p><b>{{ poll['option1'] }}</b> {{ poll['votes1'] }} <a = href= {{ url_for('upvote', pollId=poll.name, option=1) }} >Vote Up <a = href= {{ url_for('downvote', pollId=poll.name, option=1) }} >Vote Down</p>
+    <p><b>{{ poll['option2'] }}</b> {{ poll['votes2'] }} <a = href= {{ url_for('upvote', pollId=poll.name, option=2) }} >Vote Up <a = href= {{ url_for('downvote', pollId=poll.name, option=2) }} >Vote Down</p>
+    <p><b>{{ poll['option3'] }}</b> {{ poll['votes3'] }} <a = href= {{ url_for('upvote', pollId=poll.name, option=3) }} >Vote Up <a = href= {{ url_for('downvote', pollId=poll.name, option=3) }} >Vote Down</p>
+    <p><b>Total de votos: </b> {{ poll['votesTotal'] }}
+    <p><a href = {{ url_for("index") }}>Voltar</a></p>
 </body>
 </html>
