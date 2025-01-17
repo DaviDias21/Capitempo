@@ -3,6 +3,8 @@ import os.path
 import pandas as pd
 from flask import Flask, render_template, redirect, request, url_for, make_response
 
+from functions import ReturnWeatherVerdict, FinalVerdict, ReturnHighestPercentage
+
 app = Flask(__name__, template_folder="templates")
 
 if not os.path.exists("polls.csv"):
@@ -10,6 +12,8 @@ if not os.path.exists("polls.csv"):
         "id": [],
         "area": [],
         "location": [],
+        "verdict": [],
+
         "c_pollResult": [],
         "c_noOption": [],
         "c_lowOption": [],
@@ -20,6 +24,7 @@ if not os.path.exists("polls.csv"):
         "c_votesAvg": [],
         "c_votesHigh": [],
         "c_votesTotal": [],
+        "c_highestPercentage" : [],
 
         "r_pollResult": [],
         "r_noOption": [],
@@ -30,7 +35,8 @@ if not os.path.exists("polls.csv"):
         "r_votesLow": [],
         "r_votesAvg": [],
         "r_votesHigh": [],
-        "r_votesTotal": []
+        "r_votesTotal": [],
+        "r_highestPercentage" : []
     }
     pd.DataFrame(structure).set_index("id").to_csv("polls.csv")
 
@@ -52,27 +58,58 @@ def create_poll():
     elif request.method == "POST":
         area = request.form['area']
         location = request.form['location']
-        
-        polls_df.loc[max(polls_df.index.values) + 1] = [area,location,"Indeterminado","Céu limpo","Pouco nublado",
-                                                        "Nublado","Muito nublado",0,0,0,0,0,"Indeterminada","Sem chuva",
-                                                        "Chuva leve","Chuva","Chuva forte",0,0,0,0,0]
+        polls_df.loc[max(polls_df.index.values) + 1] = [area,location,"Sem informações",
+                                                        "Sem informações","Céu limpo","Pouco nublado","Nublado","Muito nublado",0,0,0,0,0,0,
+                                                        "Sem informações","Sem chuva","Chuva leve","Chuva","Chuva forte",0,0,0,0,0,0]
         
         polls_df.to_csv("polls.csv")
         return redirect(url_for("index"))
 
-@app.route("/upvote/<pollId>/<option>")
+@app.route("/upvote/<pollId>/<pollPrefix>/<option>")
 def upvote(pollId, pollPrefix ,option):
     polls_df.at[int(pollId), str(pollPrefix)+"votes"+str(option)] += 1
     polls_df.at[int(pollId), str(pollPrefix)+"votesTotal"] += 1
+    polls_df.at[int(pollId), str(pollPrefix)+"pollResult"] = ReturnWeatherVerdict(polls_df.at[int(pollId), str(pollPrefix)+"noOption"],
+                                                                                  polls_df.at[int(pollId), str(pollPrefix)+"lowOption"],
+                                                                                  polls_df.at[int(pollId), str(pollPrefix)+"avgOption"],
+                                                                                  polls_df.at[int(pollId), str(pollPrefix)+"highOption"],
+                                                                                  polls_df.at[int(pollId), str(pollPrefix)+"votesNo"],
+                                                                                  polls_df.at[int(pollId), str(pollPrefix)+"votesLow"],
+                                                                                  polls_df.at[int(pollId), str(pollPrefix)+"votesAvg"],
+                                                                                  polls_df.at[int(pollId), str(pollPrefix)+"votesHigh"],
+                                                                                  polls_df.at[int(pollId), str(pollPrefix)+"votesTotal"])
+    polls_df.at[int(pollId), str(pollPrefix)+"highestPercentage"] = ReturnHighestPercentage(polls_df.at[int(pollId), str(pollPrefix)+"votesNo"],
+                                                                                            polls_df.at[int(pollId), str(pollPrefix)+"votesLow"],
+                                                                                            polls_df.at[int(pollId), str(pollPrefix)+"votesAvg"],
+                                                                                            polls_df.at[int(pollId), str(pollPrefix)+"votesHigh"],
+                                                                                            polls_df.at[int(pollId), str(pollPrefix)+"votesTotal"],)
+    polls_df.at[int(pollId), "verdict"] = FinalVerdict(polls_df.at[int(pollId), "c_pollResult"],
+                                                       polls_df.at[int(pollId), "r_pollResult"])
     polls_df.to_csv("polls.csv")
     response = make_response(redirect(url_for("polls", pollId=pollId)))
     return response
 
-@app.route("/downvote/<pollId>/<option>")
-def downvote(pollId, option):
-    if(polls_df.at[int(pollId), "votes"+str(option)]) > 0:
-        polls_df.at[int(pollId), "votes"+str(option)] -= 1
-        polls_df.at[int(pollId), "votesTotal"] -= 1
+@app.route("/downvote/<pollId>/<pollPrefix>/<option>")
+def downvote(pollId, pollPrefix, option):
+    if(polls_df.at[int(pollId), str(pollPrefix)+"votes"+str(option)]) > 0:
+        polls_df.at[int(pollId), str(pollPrefix)+"votes"+str(option)] -= 1
+        polls_df.at[int(pollId), str(pollPrefix)+"votesTotal"] -= 1
+        polls_df.at[int(pollId), str(pollPrefix)+"pollResult"] = ReturnWeatherVerdict(polls_df.at[int(pollId), str(pollPrefix)+"noOption"],
+                                                                                      polls_df.at[int(pollId), str(pollPrefix)+"lowOption"],
+                                                                                      polls_df.at[int(pollId), str(pollPrefix)+"avgOption"],
+                                                                                      polls_df.at[int(pollId), str(pollPrefix)+"highOption"],
+                                                                                      polls_df.at[int(pollId), str(pollPrefix)+"votesNo"],
+                                                                                      polls_df.at[int(pollId), str(pollPrefix)+"votesLow"],
+                                                                                      polls_df.at[int(pollId), str(pollPrefix)+"votesAvg"],
+                                                                                      polls_df.at[int(pollId), str(pollPrefix)+"votesHigh"],
+                                                                                      polls_df.at[int(pollId), str(pollPrefix)+"votesTotal"])
+        polls_df.at[int(pollId), str(pollPrefix)+"highestPercentage"] = ReturnHighestPercentage(polls_df.at[int(pollId), str(pollPrefix)+"votesNo"],
+                                                                                                polls_df.at[int(pollId), str(pollPrefix)+"votesLow"],
+                                                                                                polls_df.at[int(pollId), str(pollPrefix)+"votesAvg"],
+                                                                                                polls_df.at[int(pollId), str(pollPrefix)+"votesHigh"],
+                                                                                                polls_df.at[int(pollId), str(pollPrefix)+"votesTotal"],)
+        polls_df.at[int(pollId), "verdict"] = FinalVerdict(polls_df.at[int(pollId), "c_pollResult"],
+                                                           polls_df.at[int(pollId), "r_pollResult"])
         polls_df.to_csv("polls.csv")
     response = make_response(redirect(url_for("polls", pollId=pollId)))
     return response
