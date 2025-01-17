@@ -27,6 +27,8 @@ def FinalVerdict(cloudVerdict : str, rainVerdict : str):
     
     if rainVerdict == "Sem informações":
         return cloudVerdict
+    elif cloudVerdict == "Sem informações":
+        return rainVerdict
     elif rainVerdict != "Sem chuva":
         return rainVerdict
     else:
@@ -34,7 +36,11 @@ def FinalVerdict(cloudVerdict : str, rainVerdict : str):
     
 def ReturnHighestPercentage(votesNo : int, votesLow : int, votesAvg : int, votesHigh : int, votesTotal : int):
     highestVoteCount = ReturnHighest([votesNo, votesLow, votesAvg, votesHigh])
-    votingPercentage = (float(highestVoteCount)/float(votesTotal))*100
+    if highestVoteCount == 0:
+        votingPercentage = 0
+    else:
+        votingPercentage = (float(highestVoteCount)/float(votesTotal))*100
+
     roundedPercentage=round(votingPercentage,2)
     return str(roundedPercentage)+"%"
     

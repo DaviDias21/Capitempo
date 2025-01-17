@@ -60,7 +60,7 @@ def create_poll():
         location = request.form['location']
         polls_df.loc[max(polls_df.index.values) + 1] = [area,location,"Sem informações",
                                                         "Sem informações","Céu limpo","Pouco nublado","Nublado","Muito nublado",0,0,0,0,0,0,
-                                                        "Sem informações","Sem chuva","Chuva leve","Chuva","Chuva forte",0,0,0,0,0,0]
+                                                        "Sem informações","Sem chuva","Chuva leve","Chuva moderada","Chuva forte",0,0,0,0,0,0]
         
         polls_df.to_csv("polls.csv")
         return redirect(url_for("index"))
