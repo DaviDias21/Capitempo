@@ -36,7 +36,7 @@ def FinalVerdict(cloudVerdict : str, rainVerdict : str):
     
 def ReturnHighestPercentage(votesNo : int, votesLow : int, votesAvg : int, votesHigh : int, votesTotal : int):
     highestVoteCount = ReturnHighest([votesNo, votesLow, votesAvg, votesHigh])
-    if highestVoteCount == 0:
+    if highestVoteCount <= 0:
         votingPercentage = 0
     else:
         votingPercentage = (float(highestVoteCount)/float(votesTotal))*100
