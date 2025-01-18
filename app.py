@@ -7,12 +7,31 @@ from functions import ReturnWeatherVerdict, FinalVerdict, ReturnHighestPercentag
 
 app = Flask(__name__, template_folder="templates")
 
+# Inicializa o arquivo .csv que contém as informações das enquetes da aplicação.
+# Quaisquer mudanças nos valores da aplicação são registrados no arquivo,
+# o que garante a persistência dos dados.
+
 if not os.path.exists("polls.csv"):
+    # A estrutura 'structure' definida contém todos os dados necessários para as operações com as enquetes
+    # e para a exibição das informações
     structure = {
+        # 'id': único para uma determinada parte de Brasília (Esplanada, Rodoviária, etc.)
+        # 'area': é a região do Plano Piloto à qual o lugar pertence (Norte, Sul, Central)
+        # 'location': o nome do lugar
+        # 'verdict': um breve resumo do tempo no lugar. Se está chovendo, mostra o nível da chuva. Se não, mostra o status das nuvens
+
         "id": [],
         "area": [],
         "location": [],
         "verdict": [],
+        
+        # Temos também as informações das enquetes. Cada lugar tem duas. Uma para as nuvens, uma para a chuva.
+        # Estruturalmente, ambas são idênticas, com um resultado (opção mais votada), quatro estágios de evento climático,
+        # (evento não acontecendo, evento pouco intenso, evento moderado, evento intenso), a contagem de votos para cada opção,
+        # o número total de votos da enquete e uma porcentagem para a opção vencedora (a divisão dos votos da opção mais votada
+        # com o total de votos) convertido em string
+
+        # As enquetes recebem um prefixo para serem diferenciadas pelo script: 'c_' para clouds, ou nuvens; e 'r_' para rain, ou chuva
 
         "c_pollResult": [],
         "c_noOption": [],
@@ -38,18 +57,23 @@ if not os.path.exists("polls.csv"):
         "r_votesTotal": [],
         "r_highestPercentage" : []
     }
+    # Inicializa um Data Frame com a estrutura descrita acima e transfere os dados para o arquivo .csv
     pd.DataFrame(structure).set_index("id").to_csv("polls.csv")
+
+# cria um Data Frame a ser usado no script para acessar e mudar valores
 
 polls_df = pd.read_csv("polls.csv").set_index("id")
 
+# O index recebe um Data Frame e imprime os seus índices (lugares de Brasília) um por um na tela da aplicação
 @app.route("/")
 def index():
     return render_template("index.html", polls=polls_df)
 
+# Mostra as informações de um lugar específico (enquetes e resultados)
 @app.route("/polls/<pollId>")
 def polls(pollId):
     poll = polls_df.loc[int(pollId)]
-    return render_template("show_poll.html", poll=poll)
+    return render_template("show_location_info.html", poll=poll)
 
 @app.route("/polls", methods=["GET", "POST"])
 def create_poll():
