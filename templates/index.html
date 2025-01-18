@@ -2,17 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Polling Test</title>
+    <title>Capitempo</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='css/index.css') }}>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mina:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h2>Brasília:</h2>
-    <ul>
-    {% for key, value in polls.iterrows() %}
-        <h3><li><a href= {{ url_for("polls", pollId=key) }}>{{ value['location'] }}: {{ value['verdict'] }}</a></li></h3>
-    {% endfor %}
-    </ul>
+    <h1>Capitempo</h1>
 
-    <a href = {{ url_for ("create_poll") }}>Create New Poll</a>
+    <a href = {{ url_for ("create_poll") }}>Criar nova localização</a>
+
+    <div class="map-container">
+        <img src={{ url_for('static', filename='assets/planopiloto.png') }} alt="Plano Piloto" width="500">
+
+        <div class="esplanada-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=1) }}">
+                {{ polls.loc[1, 'location'] }}: {{ polls.loc[1, 'verdict'] }}
+                </a>
+            </p>
+        </div>
+
+        <div class="rodoviaria-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=2) }}">
+                {{ polls.loc[2, 'location'] }}: {{ polls.loc[2, 'verdict'] }}
+                </a>
+            </p>
+        </div>
+
+        <div class="estadio-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=3) }}">
+                {{ polls.loc[3, 'location'] }}: {{ polls.loc[3, 'verdict'] }}
+                </a>
+            </p>
+        </div>
+
+        <!-- <div class="-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=4) }}">
+                {{ polls.loc[4, 'location'] }}: {{ polls.loc[4, 'verdict'] }}
+                </a>
+            </p>
+        </div>
+
+        <div class="-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=5) }}">
+                {{ polls.loc[5, 'location'] }}: {{ polls.loc[5, 'verdict'] }}
+                </a>
+            </p>
+        </div> -->
+
+
+        <!-- <ul>
+        {% for key, value in polls.iterrows() %}
+            <h3><li><a href= {{ url_for("polls", pollId=key) }}>{{ value['location'] }}: {{ value['verdict'] }}</a></li></h3>
+        {% endfor %}
+        </ul> -->
+    </div>
 
 </body>
 </html>

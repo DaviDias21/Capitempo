@@ -1,0 +1,53 @@
+body {
+  font-family: "Lato", serif;
+  background-color: bisque;
+}
+
+h1 {
+  color: brown;
+}
+
+.map-container {
+  display: grid;
+  justify-items: center;
+}
+
+img {
+  width: 1800px;
+  height: 1800px;
+  position: absolute;
+  z-index: -1;
+}
+
+a {
+  text-decoration: none;
+}
+
+.esplanada-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 910px;
+  left: 30px;
+  border-radius: 15px;
+}
+
+.rodoviaria-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 790px;
+  border-radius: 15px;
+}
+
+.estadio-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 650px;
+  right: 100px;
+  border-radius: 15px;
+}
