@@ -9,7 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mina:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Capitempo</h1>
+    <div class="title-div">
+        <h1>Capitempo</h1>
+        <h3>Selecione a área para visualizar enquete</h3>
+    </div>
 
     <a href = {{ url_for ("create_poll") }}>Criar nova localização</a>
 
@@ -19,7 +22,7 @@
         <div class="esplanada-div">
             <p>
                 <a href="{{ url_for('polls', pollId=1) }}">
-                {{ polls.loc[1, 'location'] }}: {{ polls.loc[1, 'verdict'] }}
+                {{ polls.loc[1, 'location'] }}: <b>{{ polls.loc[1, 'verdict'] }}</b>
                 </a>
             </p>
         </div>
@@ -27,7 +30,7 @@
         <div class="rodoviaria-div">
             <p>
                 <a href="{{ url_for('polls', pollId=2) }}">
-                {{ polls.loc[2, 'location'] }}: {{ polls.loc[2, 'verdict'] }}
+                {{ polls.loc[2, 'location'] }}: <b>{{ polls.loc[2, 'verdict'] }}</b>
                 </a>
             </p>
         </div>
@@ -35,26 +38,114 @@
         <div class="estadio-div">
             <p>
                 <a href="{{ url_for('polls', pollId=3) }}">
-                {{ polls.loc[3, 'location'] }}: {{ polls.loc[3, 'verdict'] }}
+                {{ polls.loc[3, 'location'] }}: <b>{{ polls.loc[3, 'verdict'] }}</b>
                 </a>
             </p>
         </div>
 
-        <!-- <div class="-div">
+        <div class="vilaplanalto-div">
             <p>
                 <a href="{{ url_for('polls', pollId=4) }}">
-                {{ polls.loc[4, 'location'] }}: {{ polls.loc[4, 'verdict'] }}
+                {{ polls.loc[4, 'location'] }}: <b>{{ polls.loc[4, 'verdict'] }}</b>
                 </a>
             </p>
         </div>
 
-        <div class="-div">
+        <div class="inicioasanorte-div">
             <p>
                 <a href="{{ url_for('polls', pollId=5) }}">
-                {{ polls.loc[5, 'location'] }}: {{ polls.loc[5, 'verdict'] }}
+                {{ polls.loc[5, 'location'] }}: <b>{{ polls.loc[5, 'verdict'] }}</b>
                 </a>
             </p>
-        </div> -->
+        </div>
+
+        <div class="meioasanorte-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=6) }}">
+                {{ polls.loc[6, 'location'] }}: <b>{{ polls.loc[6, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="pontaasanorte-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=7) }}">
+                {{ polls.loc[7, 'location'] }}: <b>{{ polls.loc[7, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="unb-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=8) }}">
+                {{ polls.loc[8, 'location'] }}: <b>{{ polls.loc[8, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="noroeste-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=9) }}">
+                {{ polls.loc[9, 'location'] }}: <b>{{ polls.loc[9, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="quarteis-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=10) }}">
+                {{ polls.loc[10, 'location'] }}: <b>{{ polls.loc[10, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="iniciolagonorte-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=11) }}">
+                {{ polls.loc[11, 'location'] }}: <b>{{ polls.loc[11, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="pontalagonorte-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=12) }}">
+                {{ polls.loc[12, 'location'] }}: <b>{{ polls.loc[12, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="clubessul-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=13) }}">
+                {{ polls.loc[13, 'location'] }}: <b>{{ polls.loc[13, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="inicioasasul-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=14) }}">
+                {{ polls.loc[14, 'location'] }}: <b>{{ polls.loc[14, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="meioasasul-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=15) }}">
+                {{ polls.loc[15, 'location'] }}: <b>{{ polls.loc[15, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="pontaasasul-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=16) }}">
+                {{ polls.loc[16, 'location'] }}: <b>{{ polls.loc[16, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
 
 
         <!-- <ul>
