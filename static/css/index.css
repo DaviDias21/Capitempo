@@ -6,6 +6,7 @@ body {
 .title-div {
   display: grid;
   justify-items: center;
+
   h1 {
     font-size: 60px;
     color: brown;
@@ -19,14 +20,14 @@ body {
 .map-container {
   display: grid;
   justify-items: center;
-}
 
-img {
-  width: 1800px;
-  height: 1800px;
-  position: absolute;
-  z-index: -1;
-  border-radius: 15px;
+  img {
+    width: 1800px;
+    height: 1800px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 15px;
+  }
 }
 
 a {
@@ -198,5 +199,45 @@ a {
   position: relative;
   top: 590px;
   right: 320px;
+  border-radius: 15px;
+}
+
+.parquecidade-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 250px;
+  right: 210px;
+  border-radius: 15px;
+}
+
+.sudoeste-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 130px;
+  right: 320px;
+  border-radius: 15px;
+}
+
+.aeroporto-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 830px;
+  right: 320px;
+  border-radius: 15px;
+}
+
+.lagosul-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 570px;
+  left: 170px;
   border-radius: 15px;
 }

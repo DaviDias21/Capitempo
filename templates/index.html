@@ -5,8 +5,8 @@
     <title>Capitempo</title>
     <link rel="stylesheet" href={{ url_for('static', filename='css/index.css') }}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mina:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Mina:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="title-div">
@@ -143,6 +143,38 @@
             <p>
                 <a href="{{ url_for('polls', pollId=16) }}">
                 {{ polls.loc[16, 'location'] }}: <b>{{ polls.loc[16, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="parquecidade-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=17) }}">
+                {{ polls.loc[17, 'location'] }}: <b>{{ polls.loc[17, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="sudoeste-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=18) }}">
+                {{ polls.loc[18, 'location'] }}: <b>{{ polls.loc[18, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="aeroporto-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=19) }}">
+                {{ polls.loc[19, 'location'] }}: <b>{{ polls.loc[19, 'verdict'] }}</b>
+                </a>
+            </p>
+        </div>
+
+        <div class="lagosul-div">
+            <p>
+                <a href="{{ url_for('polls', pollId=20) }}">
+                {{ polls.loc[20, 'location'] }}: <b>{{ polls.loc[20, 'verdict'] }}</b>
                 </a>
             </p>
         </div>
