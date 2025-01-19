@@ -2,10 +2,13 @@ import os.path
 
 import pandas as pd
 from flask import Flask, render_template, redirect, request, url_for, make_response
+from flask_apscheduler import APScheduler
 
 from functions import ReturnWeatherVerdict, FinalVerdict, ReturnHighestPercentage
 
 app = Flask(__name__, template_folder="templates")
+
+sched = APScheduler()
 
 # Inicializa o arquivo .csv que contém as informações das enquetes da aplicação.
 # Quaisquer mudanças nos valores da aplicação são registrados no arquivo,
@@ -63,16 +66,59 @@ if not os.path.exists("polls.csv"):
 polls_df = pd.read_csv("polls.csv").set_index("id")
 # cria um Data Frame a ser usado no script para acessar e mudar valores
 
+cloudList = []
+rainList = []
+
+def downvoteAll():
+    print("Votos diminuídos")
+    for pollId in range(19):
+        downvote(pollId+1, 'c_', 'No')
+        downvote(pollId+1, 'c_', 'Low')
+        downvote(pollId+1, 'c_', 'Avg')
+        downvote(pollId+1, 'c_', 'High')
+        
+        downvote(pollId+1, 'r_', 'No')
+        downvote(pollId+1, 'r_', 'Low')
+        downvote(pollId+1, 'r_', 'Avg')
+        downvote(pollId+1, 'r_', 'High')
+        
+        polls_df.to_csv("polls.csv")
+
 @app.route("/")
 # O index recebe um Data Frame e imprime os seus índices (lugares de Brasília) um por um na tela da aplicação
 def index():
     return render_template("index.html", polls=polls_df)
 
-@app.route("/polls/<pollId>")
+@app.route("/polls/<pollId>", methods=["GET","POST"])
 # Mostra as informações de um lugar específico (enquetes e resultados)
 def polls(pollId):
-    poll = polls_df.loc[int(pollId)]
-    return render_template("show_location_info.html", poll=poll)
+    if request.method =="GET":
+        poll = polls_df.loc[int(pollId)]
+        return render_template("show_location_info.html", poll=poll)
+
+    elif request.method=="POST":
+        cloudList = request.form.getlist("cloudList")
+        rainList = request.form.getlist("rainList")
+
+        print(cloudList)
+        print(rainList)
+
+        if cloudList:
+            for option in cloudList:
+                upvote(pollId, "c_", option)
+
+        if rainList:
+            for option in rainList:
+                upvote(pollId, "r_", option)
+        
+        cloudList.clear()
+        rainList.clear()
+
+        polls_df.to_csv("polls.csv")
+        # Atualiza o arquivo .csv com as informações do Data Frame
+
+        return redirect(url_for("polls", pollId=pollId))
+        # Retorna para o endereço da enquete, com as informações atualizadas
 
 @app.route("/polls", methods=["GET", "POST"])
 # Nesse link ficam as informações da função de criar uma nova enquete: o link para a página de criação
@@ -135,14 +181,8 @@ def upvote(pollId, pollPrefix ,option): # Pega o id único do lugar,
                                                        polls_df.at[int(pollId), "r_pollResult"])
     # Recebe os vereditos das duas enquetes e os pesa
     # pra mostrar o resultado mais relevante na página inicial
-
-    polls_df.to_csv("polls.csv")
-    # Atualiza o arquivo .csv com as informações do Data Frame
-
-    response = make_response(redirect(url_for("polls", pollId=pollId)))
-    # Retorna para o endereço da enquete, com as informações atualizadas
-
-    return response
+    
+    return
 
 @app.route("/downvote/<pollId>/<pollPrefix>/<option>")
 def downvote(pollId, pollPrefix, option):
@@ -174,8 +214,9 @@ def downvote(pollId, pollPrefix, option):
     else:
         polls_df.at[int(pollId), str(pollPrefix)+"votes"+str(option)] = 0
     
-    response = make_response(redirect(url_for("polls", pollId=pollId)))
-    return response
+    return
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    sched.add_job(id='downvoteAll', func=downvoteAll, trigger='interval', minutes = 5)
+    sched.start()
+    app.run(debug=True, use_reloader=False)

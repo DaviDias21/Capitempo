@@ -12,20 +12,26 @@
     <h2>{{ poll['location'] }} ( {{ poll['area'] }} )</h2>
     <br>
     <h3><p>Nuvens: {{ poll['c_pollResult'] }} &emsp; ({{ poll['c_highestPercentage'] }})</p></h3>
-    <h4><p><p>{{ poll['c_noOption'] }} ({{ poll['c_votesNo'] }} votos) <br> <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="c_" ,option="No") }} >Vote Up</a> &emsp;<a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="c_" ,option="No") }} >Vote Down</p></p></a></h4>
-    <h4><p><p>{{ poll['c_lowOption'] }} ({{ poll['c_votesLow'] }} votos) <br> <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="c_" ,option="Low") }} >Vote Up</a> &emsp;<a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="c_" ,option="Low") }} >Vote Down</p></p></a></h4>
-    <h4><p><p>{{ poll['c_avgOption'] }} ({{ poll['c_votesAvg'] }} votos) <br> <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="c_" ,option="Avg") }} >Vote Up</a> &emsp;<a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="c_" ,option="Avg") }} >Vote Down</p></p></a></h4>
-    <h4><p><p>{{ poll['c_highOption'] }} ({{ poll['c_votesHigh'] }} votos) <br> <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="c_" ,option="High") }} >Vote Up</a> &emsp;<a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="c_" ,option="High") }} >Vote Down</p></p></a></h4>
-    <p>Total de votos:  {{ poll['c_votesTotal'] }}
-    <br>
-    <br>
-    <h3><p>Chuva: {{ poll['r_pollResult'] }} &emsp; ({{ poll['r_highestPercentage'] }})</p></h3>
-    <h4><p><p>{{ poll['r_noOption'] }} ({{ poll['r_votesNo'] }} votos) <br> <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="r_" ,option="No") }} >Vote Up</a> &emsp;<a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="r_" ,option="No") }} >Vote Down</p></p></a></h4>
-    <h4><p><p>{{ poll['r_lowOption'] }} ({{ poll['r_votesLow'] }} votos) <br> <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="r_" ,option="Low") }} >Vote Up</a> &emsp;<a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="r_" ,option="Low") }} >Vote Down</p></p></a></h4>
-    <h4><p><p>{{ poll['r_avgOption'] }} ({{ poll['r_votesAvg'] }} votos) <br> <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="r_" ,option="Avg") }} >Vote Up</a> &emsp;<a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="r_" ,option="Avg") }} >Vote Down</p></p></a></h4>
-    <h4><p><p>{{ poll['r_highOption'] }} ({{ poll['r_votesHigh'] }} votos) <br> <a = href= {{ url_for('upvote', pollId=poll.name, pollPrefix="r_" ,option="High") }} >Vote Up</a> &emsp;<a = href= {{ url_for('downvote', pollId=poll.name, pollPrefix="r_" ,option="High") }} >Vote Down</p></p></a></h4>
-    <p>Total de votos:  {{ poll['r_votesTotal'] }}
-    <br>
-    <p><a href = {{ url_for("index") }}>Voltar</a></p>
+    <form method="POST" action="">
+        <input type="checkbox" value="No" name="cloudList")> {{ poll['c_noOption'] }} ({{ poll['c_votesNo'] }} votos)
+        <input type="checkbox" value="Low" name="cloudList")> {{ poll['c_lowOption'] }} ({{ poll['c_votesLow'] }} votos)
+        <input type="checkbox" value="Avg" name="cloudList")> {{ poll['c_avgOption'] }} ({{ poll['c_votesAvg'] }} votos)
+        <input type="checkbox" value="High" name="cloudList")> {{ poll['c_highOption'] }} ({{ poll['c_votesHigh'] }} votos)
+
+        <p>Total de votos:  {{ poll['c_votesTotal'] }}
+        <br>
+        <br>
+        <h3><p>Chuva: {{ poll['r_pollResult'] }} &emsp; ({{ poll['r_highestPercentage'] }})</p></h3>
+
+        <input type="checkbox" value="No" name="rainList")> {{ poll['r_noOption'] }} ({{ poll['r_votesNo'] }} votos)
+        <input type="checkbox" value="Low" name="rainList")> {{ poll['r_lowOption'] }} ({{ poll['r_votesLow'] }} votos)
+        <input type="checkbox" value="Avg" name="rainList")> {{ poll['r_avgOption'] }} ({{ poll['r_votesAvg'] }} votos)
+        <input type="checkbox" value="High" name="rainList")> {{ poll['r_highOption'] }} ({{ poll['r_votesHigh'] }} votos)
+
+        <p>Total de votos:  {{ poll['r_votesTotal'] }}
+        <br>
+        <p><input type="submit" value="Confirmar votos"></p>
+        <p><a href = {{ url_for("index") }}>Voltar</a></p>
+    </form>
 </body>
 </html>
