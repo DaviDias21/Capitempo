@@ -1,0 +1,243 @@
+body {
+  font-family: "Lato", serif;
+  background-color: bisque;
+}
+
+.title-div {
+  display: grid;
+  justify-items: center;
+
+  h1 {
+    font-size: 60px;
+    color: brown;
+  }
+
+  h3 {
+    font-weight: 500;
+  }
+}
+
+.map-container {
+  display: grid;
+  justify-items: center;
+
+  img {
+    width: 1800px;
+    height: 1800px;
+    position: absolute;
+    z-index: -1;
+    border-radius: 15px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.esplanada-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 910px;
+  left: 160px;
+  border-radius: 15px;
+}
+
+.rodoviaria-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 790px;
+  border-radius: 15px;
+}
+
+.estadio-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 650px;
+  right: 100px;
+  border-radius: 15px;
+}
+
+.vilaplanalto-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 680px;
+  left: 300px;
+  border-radius: 15px;
+}
+
+.inicioasanorte-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 500px;
+  left: 60px;
+  border-radius: 15px;
+}
+
+.meioasanorte-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 300px;
+  border-radius: 15px;
+}
+
+.pontaasanorte-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 100px;
+  right: 60px;
+  border-radius: 15px;
+}
+
+.unb-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 300px;
+  left: 230px;
+  border-radius: 15px;
+}
+
+.noroeste-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 160px;
+  right: 230px;
+  border-radius: 15px;
+}
+
+.noroeste-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 160px;
+  right: 230px;
+  border-radius: 15px;
+}
+
+.quarteis-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 280px;
+  right: 310px;
+  border-radius: 15px;
+}
+
+.iniciolagonorte-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  bottom: 130px;
+  left: 170px;
+  border-radius: 15px;
+}
+
+.pontalagonorte-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 100px;
+  left: 460px;
+  border-radius: 15px;
+}
+
+.clubessul-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 580px;
+  left: 280px;
+  border-radius: 15px;
+}
+
+.inicioasasul-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 420px;
+  right: 60px;
+  border-radius: 15px;
+}
+
+.meioasasul-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 500px;
+  right: 190px;
+  border-radius: 15px;
+}
+
+.pontaasasul-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 590px;
+  right: 320px;
+  border-radius: 15px;
+}
+
+.parquecidade-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 250px;
+  right: 210px;
+  border-radius: 15px;
+}
+
+.sudoeste-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 130px;
+  right: 320px;
+  border-radius: 15px;
+}
+
+.aeroporto-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 830px;
+  right: 320px;
+  border-radius: 15px;
+}
+
+.lagosul-div {
+  font-size: small;
+  background-color: bisque;
+  padding: 0 4px;
+  position: relative;
+  top: 570px;
+  left: 170px;
+  border-radius: 15px;
+}
