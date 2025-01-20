@@ -3,10 +3,12 @@ import os.path
 import pandas as pd
 from flask import Flask, render_template, redirect, request, url_for, make_response
 from flask_apscheduler import APScheduler
+from flask_socketio import SocketIO
 
 from functions import ReturnWeatherVerdict, FinalVerdict, ReturnHighestPercentage
 
 app = Flask(__name__, template_folder="templates")
+socketio = SocketIO(app)
 
 sched = APScheduler()
 
@@ -117,6 +119,8 @@ def polls(pollId):
         polls_df.to_csv("polls.csv")
         # Atualiza o arquivo .csv com as informações do Data Frame
 
+        socketio.emit("refresh")
+
         return redirect(url_for("polls", pollId=pollId))
         # Retorna para o endereço da enquete, com as informações atualizadas
 
@@ -219,4 +223,4 @@ def downvote(pollId, pollPrefix, option):
 if __name__ == "__main__":
     sched.add_job(id='downvoteAll', func=downvoteAll, trigger='interval', minutes = 5)
     sched.start()
-    app.run(debug=True, use_reloader=False)
+    socketio.run(app=app, debug=True, use_reloader=False)
