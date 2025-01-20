@@ -9,7 +9,7 @@ id,area,location,verdict,c_pollResult,c_noOption,c_lowOption,c_avgOption,c_highO
 8,Área Norte,Universidade de Brasília,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva moderada,Chuva forte,0,0,0,0,0,0%
 9,Área Norte,Noroeste,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva moderada,Chuva forte,0,0,0,0,0,0%
 10,Área Norte,Quartéis,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva moderada,Chuva forte,0,0,0,0,0,0%
-11,Área Norte,Lago Norte (Início),Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva moderada,Chuva forte,0,0,0,0,0,0%
+11,Área Norte,Lago Norte (Início),Chuva forte,Céu limpo,Céu limpo,Pouco nublado,Nublado,Muito nublado,3,1,2,2,8,37.5%,Chuva forte,Sem chuva,Chuva leve,Chuva moderada,Chuva forte,2,2,1,3,8,37.5%
 12,Área Norte,Lago Norte (Ponta),Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva moderada,Chuva forte,0,0,0,0,0,0%
 13,Área Sul,Setor de Clubes Sul,Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva moderada,Chuva forte,0,0,0,0,0,0%
 14,Área Sul,Asa Sul (Início),Sem informações,Sem informações,Céu limpo,Pouco nublado,Nublado,Muito nublado,0,0,0,0,0,0%,Sem informações,Sem chuva,Chuva leve,Chuva moderada,Chuva forte,0,0,0,0,0,0%
