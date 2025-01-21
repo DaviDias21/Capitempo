@@ -71,7 +71,9 @@ polls_df = pd.read_csv("polls.csv").set_index("id")
 cloudList = []
 rainList = []
 
-def downvoteAll():
+def downvoteAll(): # Função que é chamada rotineiramente pelo script e diminui os votos
+                   # de todas as enquetes da aplicação, com o objetivo de manter as informações
+                   # refletindo o cenário atual das regiões da cidade
     print("Votos diminuídos")
     for pollId in range(19):
         downvote(pollId+1, 'c_', 'No')
@@ -99,21 +101,20 @@ def polls(pollId):
         return render_template("show_location_info.html", poll=poll)
 
     elif request.method=="POST":
-        cloudList = request.form.getlist("cloudList")
-        rainList = request.form.getlist("rainList")
-
-        print(cloudList)
-        print(rainList)
+        cloudList = request.form.getlist("cloudList") # Recebe listas com todas as opções votadas pelo usuário
+        rainList = request.form.getlist("rainList")   # em qualquer uma das enquetes de uma região
 
         if cloudList:
             for option in cloudList:
-                upvote(pollId, "c_", option)
+                upvote(pollId, "c_", option) # Todas as opções votadas pelo usuário
+                                             # têm sua contagem de votos incrementada no Data Frame
 
         if rainList:
             for option in rainList:
-                upvote(pollId, "r_", option)
+                upvote(pollId, "r_", option) # Todas as opções votadas pelo usuário
+                                             # têm sua contagem de votos incrementada no Data Frame
         
-        cloudList.clear()
+        cloudList.clear() # Listas são esvaziadas para o próximo voto
         rainList.clear()
 
         polls_df.to_csv("polls.csv")
@@ -223,4 +224,6 @@ def downvote(pollId, pollPrefix, option):
 if __name__ == "__main__":
     sched.add_job(id='downvoteAll', func=downvoteAll, trigger='interval', minutes = 5)
     sched.start()
+    # Configura e inicializa a subrotina da aplicação, que subtrai votos a cada 5 minutos
+
     socketio.run(app=app, debug=True, use_reloader=False)
